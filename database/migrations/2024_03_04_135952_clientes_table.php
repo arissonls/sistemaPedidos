@@ -18,9 +18,11 @@ class ClientesTable extends Migration
             $table->id();
             $table->bigInteger('id_user',false, true);
             $table->date('birth');
-            $table->integer('cel_phone');
+            $table->string('email');
+            $table->integer('cellphone');
             $table->string('estate');
             $table->string('city');
+            $table->integer('zip_code');
             $table->string('distrit');
             $table->string('streat');
             $table->string('house');
