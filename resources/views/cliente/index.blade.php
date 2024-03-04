@@ -20,8 +20,8 @@
                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</td>
                         <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Pedidos</th>
                     </tr>    
-                </thead>
-                <tbody class="text-gray-700">
+            </thead>
+            <tbody class="text-gray-700">
                 @foreach ($clientes as $cliente)
                     <tr>
                         <td class="w-1/3 text-left py-3 px-4">{{$cliente->name}}</td>

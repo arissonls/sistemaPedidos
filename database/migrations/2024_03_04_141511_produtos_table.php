@@ -22,6 +22,7 @@ class ProdutosTable extends Migration
             $table->float('price');
             $table->string('status',1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

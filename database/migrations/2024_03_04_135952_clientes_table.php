@@ -27,6 +27,7 @@ class ClientesTable extends Migration
             $table->string('streat');
             $table->string('house');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('id_user')->references('id')->on('users');
 
         });
