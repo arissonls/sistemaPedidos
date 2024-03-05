@@ -19,20 +19,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->prefix('clientes')->group(function () {
+    Route::get('/',[Clientes::class, 'index'])->name('clientes');
+    Route::get('{id}',[Clientes::class, 'show']);
+    Route::get('cadastro',function(){
+        return view('cliente/cadastro');
+    })->name('cadastro');
+    Route::post('/save',[Clientes::class, 'store']);
+    Route::post('/edit',[Clientes::class, 'alteraCadastro']);
+});
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
     
-    Route::prefix('clientes')->group(function () {
-        Route::get('/',[Clientes::class, 'index'])->name('clientes');
-        Route::get('/{id}',[Clientes::class, 'show']);
-        Route::get('/cadastro',function(){
-            return view('cliente/cadastro');
-        });
-        Route::post('/save',[Clientes::class, 'store']);
-        Route::post('/edit',[Clientes::class, 'alteraCadastro']);
-    });
     Route::prefix('produtos')->group(function () {
         Route::get('/',[Produtos::class, 'index'])->name('produtos');
         Route::get('/{id}',[Produtos::class, 'show']);

@@ -17,5 +17,7 @@ class ClientesModel extends Model
         'city','distrit',
         'streat','house'
     ];
+
+    protected $dates = ['deleted_at'];
     
 }

@@ -15,7 +15,12 @@ class Clientes extends Controller
     }
 
     public function index(){
-        return view("cliente.index",["clientes"=> ClientesModel::all()]);
+        $clientes = ClientesModel::all();
+        return view("cliente.index",compact('clientes'));
+    }
+
+    public function create(){
+        return view('cliente.cadastro');
     }
 
     public function store(Request $request){
@@ -50,7 +55,9 @@ class Clientes extends Controller
     }
 
     public function destroy($id){
-
+        $cliente=ClientesModel::findOrFail($id);
+        $cliente->delete();
+        return redirect("clientes")->with("success","Cliente removido!");
     }
 
 }

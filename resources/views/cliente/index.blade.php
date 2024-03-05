@@ -1,9 +1,9 @@
 <x-app-layout>
 <h1 class="text-3xl text-black pb-6">
     Clientes 
-    <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
+    <a href="{{route('clientes/cadastro')}}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
         <i class="fas fa-plus"></i>
-    </button>
+    </a>
 
 </h1>
 
