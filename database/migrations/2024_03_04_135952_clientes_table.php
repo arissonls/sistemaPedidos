@@ -16,7 +16,7 @@ class ClientesTable extends Migration
         //
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_user',false, true);
+            $table->string('name',255);
             $table->date('birth');
             $table->string('email');
             $table->integer('cellphone');

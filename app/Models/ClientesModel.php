@@ -12,10 +12,7 @@ class ClientesModel extends Model
 
     protected $table = "clients";
     protected $fillable = [
-        'id_usuario','birth',
-        'cellphone','estate',
-        'city','distrit',
-        'streat','house'
+        'id_usuario','name','birth','email','zip_code','cellphone','estate','city','district','streat','house'
     ];
 
     protected $dates = ['deleted_at'];

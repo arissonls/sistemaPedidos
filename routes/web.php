@@ -19,27 +19,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->prefix('clientes')->group(function () {
-    Route::get('/',[Clientes::class, 'index'])->name('clientes');
-    Route::get('{id}',[Clientes::class, 'show']);
-    Route::get('cadastro',function(){
-        return view('cliente/cadastro');
-    })->name('cadastro');
-    Route::post('/save',[Clientes::class, 'store']);
-    Route::post('/edit',[Clientes::class, 'alteraCadastro']);
+Route::get('clientes/cadastro',function () {
+    return view('cliente.cadastro');
 });
+Route::get('clientes',[Clientes::class, 'index'])->name('clientes');
+Route::get('clientes/{id}',[Clientes::class, 'show']);
+Route::post('clientes/save',[Clientes::class, 'store']);
+Route::post('clientes/edit/{id}',[Clientes::class, 'update']);
+Route::get('clientes/remove/{id}',[Clientes::class, 'destroy']);
+
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
-    Route::prefix('produtos')->group(function () {
-        Route::get('/',[Produtos::class, 'index'])->name('produtos');
-        Route::get('/{id}',[Produtos::class, 'show']);
-        Route::get('/cadastro',function(){return view('produto/cadastro');});
-        Route::post('/save',[Produtos::class, 'store']);
-        Route::post('/edit',[Produtos::class, 'alteraCadastro']);
-    });
+
+    // Route::prefix('produtos')->group(function () {
+    Route::get('produtos',[Produtos::class, 'index'])->name('produtos');
+    Route::get('produtos/{id}',[Produtos::class, 'show']);
+    Route::get('produtos/cadastro',function(){return view('produto-cadastro');});
+    Route::post('produtos/save',[Produtos::class, 'store']);
+    Route::post('produtos/edit/{id}',[Produtos::class, 'update']);
+    // });
 });
 
 
