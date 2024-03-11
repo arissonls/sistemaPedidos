@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ProdutosModel extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $table = "products";
+    protected $fillable = ['name','slug','description','price','status'] ;
+
+    protected $date = ['deleted_at'];
 }

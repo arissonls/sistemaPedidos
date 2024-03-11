@@ -40,7 +40,7 @@ class Clientes extends Controller
             ClientesModel::create($insert);
             return redirect("clientes/")->with("success","Cliente cadastrado com sucesso!");
         }else{
-            return redirect()->back()->with("error","Não foi possível cadastar o usuário!");
+            return redirect()->back()->with("error","Não foi possível cadastar o cliente!");
         }
     }
 
@@ -61,7 +61,7 @@ class Clientes extends Controller
             "streat" => "required",
             "house" => "required"
         ]);
-          if($valid_form){
+        if($valid_form){
             $insert = $request->all();
             $cliente->name = $insert['name'];
             $cliente->estate = $insert['estate'];
@@ -75,9 +75,9 @@ class Clientes extends Controller
             $cliente->zip_code = preg_replace('/\D/','', $insert['zip_code']);
             $cliente->save();
             return redirect()->back()->with("success","Alteração realizada");
-          }else{
-            return redirect()->back()->with("error","Não foi possível cadastar o usuário!");
-          }
+        }else{
+            return redirect()->back()->with("error","Não foi possível salvar as alterações!");
+        }
     }
 
     public function destroy($id){

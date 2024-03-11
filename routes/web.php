@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Clientes;
+use App\Http\Controllers\Pedidos;
 use App\Http\Controllers\Produtos;
 use Illuminate\Support\Facades\Route;
 
@@ -37,11 +38,21 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::prefix('produtos')->group(function () {
     Route::get('produtos',[Produtos::class, 'index'])->name('produtos');
+    Route::get('produtos/cadastro',function(){return view('produto.cadastro');});
     Route::get('produtos/{id}',[Produtos::class, 'show']);
-    Route::get('produtos/cadastro',function(){return view('produto-cadastro');});
     Route::post('produtos/save',[Produtos::class, 'store']);
     Route::post('produtos/edit/{id}',[Produtos::class, 'update']);
+    Route::get('produtos/remove/{id}',[Produtos::class, 'destroy']);
+
     // });
+
+    Route::get('pedidos',[Pedidos::class,'index']);
+    Route::get('pedidos/adicionar',function(){return view('pedido.adicionar');});
+    Route::post('pedidos/save',[Pedidos::class,'store']);
+    Route::get('pedidos/{id}',[Pedidos::class, 'show']);
+    Route::get('pedidos/editar/{id}',[Pedidos::class,'edit']);
+    Route::post('pedidos/update/{id}',[Pedidos::class, 'update']);
+    Route::get('pedidos/destroy/{id}',[Pedidos::class,'destroy']);
 });
 
 

@@ -1,9 +1,9 @@
 <x-app-layout>
-    <h1 class="w-full text-3xl text-black pb-6">Cadastro de Cliente</h1>
+    <h1 class="w-full text-3xl text-black pb-6">Editar de Cliente</h1>
 
 <div class="w-full mt-6 pl-0">
     <p class="text-xl pb-6 flex items-center">
-        <i class="fas fa-list mr-3"></i> Cadastro
+        <i class="fas fa-list mr-3"></i> Editar
     </p>
     @if ($errors->any())
         <div role="alert">
