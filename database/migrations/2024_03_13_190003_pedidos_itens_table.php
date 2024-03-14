@@ -16,14 +16,15 @@ class PedidosItensTable extends Migration
         //
         Schema::create("orders_itens", function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("id_order")->unsigned();
-            $table->bigInteger("id_product")->unsigned();
+            $table->bigInteger("order_id")->unsigned();
+            $table->bigInteger("product_id")->unsigned();
             $table->integer("qtd")->unsigned();
             $table->float("unit_rating");
             $table->float("ful_rating");
+            $table->float("discount");
             $table->timestamps();
-            $table->foreign("id_order")->references("id")->on("orders");
-            $table->foreign("id_product")->references("id")->on("products");
+            $table->foreign("order_id")->references("id")->on("orders");
+            $table->foreign("product_id")->references("id")->on("products");
         });
     }
 

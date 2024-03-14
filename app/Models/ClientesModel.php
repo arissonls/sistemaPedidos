@@ -16,5 +16,9 @@ class ClientesModel extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function pedidos(){
+        return $this->belongsToMany(PedidosModel::class);
+    }
     
 }

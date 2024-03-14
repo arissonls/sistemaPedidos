@@ -16,14 +16,14 @@ class PedidosTable extends Migration
         //
         Schema::create("orders", function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("id_client", false, true);
+            $table->bigInteger("client_id", false, true);
             $table->dateTime("dt_expected");
+            $table->char("status");
             $table->float("rating");
             $table->char("paid");
-            $table->dateTime("dt_payment");
+            $table->dateTime("dt_payment")->nullable();
             $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('id_client')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 
