@@ -106,10 +106,10 @@
             <i class="fas fa-sticky-note mr-3"></i>
             Clientes
         </a>
-        {{-- <a href="{{route('pedidos')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="{{route('pedidos')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-table mr-3"></i>
             Pedidos
-        </a> --}}
+        </a>
         <a href="{{route('produtos')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-align-left mr-3"></i>
             Produtos

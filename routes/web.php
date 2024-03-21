@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
     // });
 
-    Route::get('pedidos',[Pedidos::class,'index']);
+    Route::get('pedidos',[Pedidos::class,'index'])->name('pedidos');
     Route::get('pedidos/adicionar',function(){return view('pedido.adicionar');});
     Route::post('pedidos/save',[Pedidos::class,'store']);
     Route::get('pedidos/{id}',[Pedidos::class, 'show']);
