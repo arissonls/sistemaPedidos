@@ -37,7 +37,7 @@
             </div>
             <div class="inline-block mt-2 -mx-1 pl-2 w-1/2">
                 <label class="block text-sm text-gray-600" for="slug">Imagem</label>
-                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="slug" name="slug" type="file" required="" {{$produto->slug}}>
+                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="slug" name="slug" type="file" {{$produto->slug}}>
             </div>
             
             <div class="mt-6">
@@ -46,5 +46,13 @@
         </form>
     </div>
 </div>
-
+<script>
+   const element = document.getElementById('price');
+    const maskOptions = {
+        mask: Number,
+        min: 0,
+        max: 500
+    };
+    const mask = IMask(element, maskOptions);
+</script>
 </x-app-layout>

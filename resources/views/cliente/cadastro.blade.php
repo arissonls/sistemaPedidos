@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout>    
     <h1 class="w-full text-3xl text-black pb-6">Cadastro de Cliente</h1>
 
 <div class="w-full mt-6 pl-0">
@@ -33,7 +33,7 @@
             </div>
             <div class="inline-block mt-2 -mx-1 w-1/2">
                 <label class="block text-sm text-gray-600" for="birth">Data de nascimento</label>
-                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="birth" name="birth" type="date" required="">
+                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="birth" name="birth" type="date">
             </div>
             <div class="inline-block mt-2 -mx-1 pl-2 w-1/2">
                 <label class="block text-sm text-gray-600" for="cellphone">Telefone</label>
@@ -79,27 +79,34 @@
 <script>
     const input = document.getElementById('zip_code');
         input.addEventListener('change',buscaCep);
-        function buscaCep(e){
-            let cep = e.target.value;
-                var request = new XMLHttpRequest();
-                request.open('get', "https://viacep.com.br/ws/"+cep+"/json/", true);
-                request.send();
-                request.onload = function () {
-                var data = JSON.parse(this.response);
-                    if(data.erro){
-                        console.error('Erro!');
-                        document.getElementById('streat').value = '';
-                        document.getElementById('estate').value = '';
-                        document.getElementById('district').value = '';
-                        document.getElementById('city').value = '';
-                    }else{
-                        document.getElementById('streat').value = data.logradouro;
-                        document.getElementById('estate').value = data.uf;
-                        document.getElementById('district').value = data.bairro;
-                        document.getElementById('city').value = data.localidade;
-                    }
-                }
         
-        }
+    function buscaCep(e){
+        let cep = e.target.value;
+            var request = new XMLHttpRequest();
+            request.open('get', "https://viacep.com.br/ws/"+cep+"/json/", true);
+            request.send();
+            request.onload = function () {
+            var data = JSON.parse(this.response);
+                if(data.erro){
+                    console.error('Erro!');
+                    document.getElementById('streat').value = '';
+                    document.getElementById('estate').value = '';
+                    document.getElementById('district').value = '';
+                    document.getElementById('city').value = '';
+                }else{
+                    document.getElementById('streat').value = data.logradouro;
+                    document.getElementById('estate').value = data.uf;
+                    document.getElementById('district').value = data.bairro;
+                    document.getElementById('city').value = data.localidade;
+                }
+            }
+    
+    }
+
+    const element = document.getElementById('cellphone');
+    const maskOptions = {
+        mask: '(00) 0 0000-0000'
+    };
+    const mask = IMask(element, maskOptions);
 </script>
 </x-app-layout>

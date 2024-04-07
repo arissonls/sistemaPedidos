@@ -45,7 +45,7 @@
             </div>
             <div class="inline-block mt-2 -mx-1 w-1/2">
                 <label class="block text-sm text-gray-600" for="birth">Data de nascimento</label>
-                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="birth" name="birth" type="date" required="" value="{{$cliente->birth}}">
+                <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="birth" name="birth" type="date" value="{{$cliente->birth}}">
             </div>
             <div class="inline-block mt-2 -mx-1 pl-2 w-1/2">
                 <label class="block text-sm text-gray-600" for="cellphone">Telefone</label>
@@ -113,5 +113,15 @@
                 }
         
         }
+
+    const element = document.getElementById('cellphone');
+    const maskOptions = {
+        mask: '(00) 0 0000-0000'
+    };
+    const mask = IMask(element, maskOptions);
+
+    
+
+
 </script>
 </x-app-layout>

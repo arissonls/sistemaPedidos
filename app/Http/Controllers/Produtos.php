@@ -32,7 +32,7 @@ class Produtos extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'slug' => $path,
-                'price' => $request->price,
+                'price' => str_replace(',','.',$request->price),
                 'status' => 'A'
             ]);
             return redirect("produtos/")->with("success","Produto cadastrado !");
@@ -63,7 +63,7 @@ class Produtos extends Controller
             $produto->name = $request->name;
             $produto->slug = ($path??$produto->slug);
             $produto->description = $request->description;
-            $produto->price = $request->price;
+            $produto->price = str_replace(',','.',$request->price);
             $produto->status = $request->status;
             $produto->save();
 
