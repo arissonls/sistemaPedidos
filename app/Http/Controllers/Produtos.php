@@ -27,12 +27,13 @@ class Produtos extends Controller
         if($request->file("slug")){
             $path = $request->file("slug") -> store('public/images');
         }
+        $preco = preg_replace( '/[^0-9\,\+\-eE]+|(?<!\d)\,(?!\d)/','',$request->price);
         if($valid_form){
             ProdutosModel::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'slug' => $path,
-                'price' => str_replace(',','.',$request->price),
+                'price' => str_replace(',','.',$preco),
                 'status' => 'A'
             ]);
             return redirect("produtos/")->with("success","Produto cadastrado !");

@@ -32,14 +32,15 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="mt-2">
-                    {{-- <label class="block text-sm text-gray-600" for="descricao">Descrição</label>
-                    <textarea name="description" id="descricao" cols="30" rows="10">    </textarea> --}}
-                </div>
-                <div class="inline-block mt-2 -mx-1 w-1/2">
-                    {{-- <label class="block text-sm text-gray-600" for="price">Preço</label>
-                    <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="price" name="price"
-                        type="text" required=""> --}}
+                <div class="inline-block mt-2 -mx-1 w-100" id="cliente_info">
+                    <label class="block text-sm text-gray-600" for="price">Cliente</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" readonly placeholder="Your Name" aria-label="Name" value="TOBOCO LINDO">
+                    <label class="block text-sm text-gray-600" for="price">Email</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="email" readonly placeholder="Your Name" aria-label="Name" value="TOBOCO.L@LINDO.CO">
+                    <label class="block text-sm text-gray-600" for="price">Whats</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" readonly placeholder="Your Name" aria-label="Name" value="@)@)@)@))@)))@">
+                    <label class="block text-sm text-gray-600" for="price">End</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" type="text" readonly placeholder="Your Name" aria-label="Name" value="RR: asdasdasd, 300, asdasdkaskdas, asdasd-2">
                 </div>
                 <div class="inline-block mt-2 -mx-1 pl-2 w-1/2">
                     {{-- <label class="block text-sm text-gray-600" for="slug">Imagem</label>
@@ -54,16 +55,23 @@
             </form>
         </div>
     </div>
+    
 <script>
+    var clientes = JSON.parse('<?= $clientes?>');
     $(document).ready(function() {
         $('#cliente').select2({
             templateSelection: setCliente
-
         });
     });
 
     function setCliente(c){
-        console.log('c',c)
+        var dado_cliente = clientes.find(item => item.id == c.id);
+        // $("#cliente_info").empty();
+        // var html = '<hr>'+
+        //             '<label class="block text-sm text-gray-600" for="price">Cliente</label>'+
+        //             dado_cliente.name+
+        //         '<hr>';
+        // $("#cliente_info").append(html);
     }
 </script>
 </x-app-layout>

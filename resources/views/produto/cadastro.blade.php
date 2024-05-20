@@ -29,7 +29,7 @@
             </div>
             <div class="mt-2">
                 <label class="block text-sm text-gray-600" for="descricao">Descrição</label>
-                <textarea name="description" id="descricao" cols="30" rows="10">    </textarea>
+                <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" name="description" id="descricao" cols="30" rows="3">    </textarea>
             </div>
             <div class="inline-block mt-2 -mx-1 w-1/2">
                 <label class="block text-sm text-gray-600" for="price">Preço</label>
@@ -49,10 +49,17 @@
 <script>
     const element = document.getElementById('price');
     const maskOptions = {
-        mask: Number,
-        min: 0,
-        max: 5000,
-        thousandsSeparator: ' '
+        mask:'R$ num', 
+        blocks:{
+            num:{
+                mask: Number,
+                min: 0,
+                max: 5000,
+                thousandsSeparator: ' ',
+                radix: ',',  // fractional delimiter
+                normalizeZeros: false,  // appends or removes zeros at ends
+            }
+        }
     };
     const mask = IMask(element, maskOptions);
 </script>
