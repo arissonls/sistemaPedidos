@@ -64,10 +64,9 @@ class Produtos extends Controller
             $produto->slug = ($path??$produto->slug);
             $produto->description = $request->description;
             $produto->price = str_replace(',','.',$request->price);
-            $produto->status = $request->status;
             $produto->save();
 
-            return redirect()->back()->with("success","Alteração realizada!");
+            return redirect("produtos/")->with("success","Alteração realizada!");
         }else{
             return redirect()->back()->with("error","Não foi possivel salvar as alterações");
         }

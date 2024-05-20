@@ -9,6 +9,8 @@
 
         <!-- Tailwind -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        {{-- Select2 --}}
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <style>
             @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
             .font-family-karla { font-family: karla; }
@@ -20,6 +22,8 @@
             .nav-item:hover { background: #1947ee; }
             .account-link:hover { background: #3d68ff; }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     </head>
     <body class="bg-gray-100 font-family-karla flex">
         
@@ -41,6 +45,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    
     
     </body>
 </html>

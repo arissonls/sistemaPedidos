@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1 class="text-3xl text-black pb-6">
         Pedidos 
-        <a href="{{url('pedidos/cadastro')}}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
+        <a href="{{url('pedidos/adicionar')}}" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
             <i class="fas fa-plus"></i>
         </a>
     
@@ -39,6 +39,10 @@
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                 Cliente
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Itens
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">

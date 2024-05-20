@@ -12,14 +12,13 @@ class Pedidos extends Controller
     //
     public function index(){
         $pedidos = PedidosModel::all();
-        echo '<pre>$pedidos<br />'; var_dump($pedidos); echo '</pre>';exit;
         return view("pedido.index", compact("pedidos"));
     }
 
     public function create(){
         $produtos = ProdutosModel::all();
         $clientes = ClientesModel::all();
-        return view('pedido.cadastra',compact('produtos','clientes'));
+        return view("pedido.cadastro",compact('produtos','clientes'));
     }
     
     public function store(Request $request){

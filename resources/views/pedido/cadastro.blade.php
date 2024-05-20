@@ -23,25 +23,28 @@
             <form class="p-10 bg-white rounded shadow-xl" action="{{ url('pedidos/save') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
-                <p class="text-lg text-gray-800 font-medium pb-4">Produto</p>
+                <p class="text-lg text-gray-800 font-medium pb-4">Ordem de Pedido</p>
                 <div class="">
-                    <label class="block text-sm text-gray-600" for="name">Nome</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="name" name="name"
-                        type="text" required="" placeholder="Nome" aria-label="Name">
+                    <label class="block text-sm text-gray-600" for="name">Cliente</label>
+                    <select id="cliente" name="cliente">
+                        @foreach($clientes as $c)
+                            <option value="{{$c->id}}">{{$c->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mt-2">
-                    <label class="block text-sm text-gray-600" for="descricao">Descrição</label>
-                    <textarea name="description" id="descricao" cols="30" rows="10">    </textarea>
+                    {{-- <label class="block text-sm text-gray-600" for="descricao">Descrição</label>
+                    <textarea name="description" id="descricao" cols="30" rows="10">    </textarea> --}}
                 </div>
                 <div class="inline-block mt-2 -mx-1 w-1/2">
-                    <label class="block text-sm text-gray-600" for="price">Preço</label>
+                    {{-- <label class="block text-sm text-gray-600" for="price">Preço</label>
                     <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="price" name="price"
-                        type="text" required="">
+                        type="text" required=""> --}}
                 </div>
                 <div class="inline-block mt-2 -mx-1 pl-2 w-1/2">
-                    <label class="block text-sm text-gray-600" for="slug">Imagem</label>
+                    {{-- <label class="block text-sm text-gray-600" for="slug">Imagem</label>
                     <input class="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded" id="slug" name="slug"
-                        type="file" required="">
+                        type="file" required=""> --}}
                 </div>
 
                 <div class="mt-6">
@@ -51,5 +54,16 @@
             </form>
         </div>
     </div>
+<script>
+    $(document).ready(function() {
+        $('#cliente').select2({
+            templateSelection: setCliente
 
+        });
+    });
+
+    function setCliente(c){
+        console.log('c',c)
+    }
+</script>
 </x-app-layout>
