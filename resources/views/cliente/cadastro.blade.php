@@ -1,4 +1,4 @@
-<x-app-layout>    
+<x-app-layout>
     <h1 class="w-full text-3xl text-black pb-6">Cadastro de Cliente</h1>
 
 <div class="w-full mt-6 pl-0">
@@ -64,11 +64,6 @@
                 <label class="hidden text-sm block text-gray-600" for="district">Bairro</label>
                 <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="district" name="district" type="text" required="" placeholder="Bairro" aria-label="Bairro" readonly>
             </div>
-            {{-- <p class="text-lg text-gray-800 font-medium py-4">Payment information</p> --}}
-            {{-- <div class="">
-                <label class="block text-sm text-gray-600" for="cus_name">Card</label>
-                <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Card Number MM/YY CVC" aria-label="Name">
-            </div> --}}
             <div class="mt-6">
                 <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Criar</button>
             </div>
@@ -79,7 +74,7 @@
 <script>
     const input = document.getElementById('zip_code');
         input.addEventListener('change',buscaCep);
-        
+
     function buscaCep(e){
         let cep = e.target.value;
             var request = new XMLHttpRequest();
@@ -100,7 +95,7 @@
                     document.getElementById('city').value = data.localidade;
                 }
             }
-    
+
     }
 
     const element = document.getElementById('cellphone');

@@ -19,7 +19,7 @@ class ClientesTable extends Migration
             $table->string('name',255);
             $table->date('birth')->nullable(true);
             $table->string('email');
-            $table->integer('cellphone');
+            $table->string('cellphone',20);
             $table->string('estate');
             $table->string('city');
             $table->integer('zip_code');

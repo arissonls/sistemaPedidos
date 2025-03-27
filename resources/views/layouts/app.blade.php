@@ -26,7 +26,7 @@
 
     </head>
     <body class="bg-gray-100 font-family-karla flex">
-        
+
         @include('layouts.navigation')
         <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
             @include('layouts.topnavigation')
@@ -35,7 +35,7 @@
                 <main class="w-full flex-grow p-6">
                     {{ $slot }}
                 </main>
-        
+
                 <footer class="w-full bg-white text-right p-4">
                     Desenvolvido por<a href="#" class="underline">Arisson Leonardo Simon</a>.
                 </footer>
@@ -45,7 +45,20 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-    
-    
+        <script>
+            let currentPath = window.location.href;
+            let navItems = document.querySelectorAll('.nav-item');
+            // Iterar sobre todos os links da navegação
+            navItems.forEach(item => {
+                let link = item.getAttribute('href');
+                if (currentPath.startsWith(link)) {
+                    item.classList.add('active-nav-link', 'bg-gray-800');
+                    item.classList.remove('opacity-75');
+                } else {
+                    item.classList.remove('active-nav-link', 'bg-gray-800');
+                    item.classList.add('opacity-75');
+                }
+            });
+        </script>
     </body>
 </html>
